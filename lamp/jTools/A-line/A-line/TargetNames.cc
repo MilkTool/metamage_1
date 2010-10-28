@@ -21,6 +21,7 @@ namespace tool
 		switch ( arch )
 		{
 			case arch68K:  return "68k";
+			case near68K:  return "68k:N";
 			case archPPC:  return "ppc";
 			case archX86:  return "x86";
 			

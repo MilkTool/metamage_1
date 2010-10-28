@@ -87,6 +87,7 @@ namespace tool
 	static bool cfm = false;
 	static bool mc68020 = false;
 	static bool a4 = false;
+	static bool addr16 = false;
 	
 	static void set_codegen_flag( const plus::string& flag )
 	{
@@ -109,6 +110,10 @@ namespace tool
 		else if ( flag == "-mA4-globals" )
 		{
 			a4 = true;
+		}
+		else if ( flag == "-mpcrel" )
+		{
+			addr16 = true;
 		}
 	}
 	
@@ -356,7 +361,7 @@ namespace tool
 				}
 				
 				command.push_back( "-model"   );
-				command.push_back( cfm ? "CFMflatdf" : "far" );
+				command.push_back( cfm ? "CFMflatdf" : addr16 ? "near" : "far" );
 				
 				if ( a4 )
 				{

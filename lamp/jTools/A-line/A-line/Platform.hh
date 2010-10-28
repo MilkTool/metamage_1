@@ -97,10 +97,15 @@ namespace tool
 		platformMac  = 1 << 10,
 		platformUnix = 1 << 11,
 		
+		model_near = 1 << 12,  // affects addressing modes, not data sizes
+		
+		near68K = arch68K | model_near,
+		
 		archMask     = 0x0007,
 		runtimeMask  = 0x00F8,
 		apiMask      = 0x0300,
-		platformMask = 0x0C00
+		platformMask = 0x0C00,
+		model_mask   = 0x1000
 		
 		
 	};
